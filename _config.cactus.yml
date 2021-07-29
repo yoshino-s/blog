@@ -1,0 +1,34 @@
+social_links:
+  github: http://github.com/yoshino-s/
+  mail: mailto:cy-cui@outlook.com
+
+logo:
+  enabled: true
+  width: 80
+  height: 80
+  gravatar: true
+
+favicon:
+  desktop:
+    gravatar: true
+  android:
+    gravatar: true
+  apple:
+    gravatar: true
+
+gravatar:
+  email: cy-cui@outlook.com
+
+copyright:
+  start_year: 2021
+  end_year:
+
+nav:
+  about: /about/
+  posts: /archives/
+  categories: /categories/
+  tags: /tags/
+  search: /search/
+
+mathjax:
+  enabled: true
