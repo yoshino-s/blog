@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Use Node.js ${{ matrix.node_version }}
+      - name: Use Node.js 16
         uses: actions/setup-node@v1
         with:
-          version: ${{ matrix.node_version }}
+          version: 16
       - name: Setup hexo
         env:
           ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
