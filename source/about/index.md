@@ -20,3 +20,5 @@ date: 2021-07-29 10:00:18
   - expr-eval prototype pollution and arbtrary code execution
   - expression-eval arbtrary code execution
   - 10+ undisclosed prototype pollution and other vulnerabilities
+
+[![w&m](https://wm-team.cn/member_icon/logo.png)](https://wm-team.cn/)
