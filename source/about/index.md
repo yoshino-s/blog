@@ -8,7 +8,7 @@ date: 2021-07-29 10:00:18
 - Name: Chenyang Cui (Yoshino-s)
 - Age: 21
 - Career:
-  - Feiyu Security 2021-7-12 to now
+  - Feiyu Security 2021-7-12 to 2021-8-31
 - Participation
   - Cybrics 2021 CTF: 2nd (W&M)
   - Defcon 2021 Qual: 9th (Nu1L)
