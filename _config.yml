@@ -105,3 +105,6 @@ deploy:
   type: git
   repo: git@github.com:Yoshino-s/blog.yoshino-s.online.git
   branch: gh-pages
+
+encrypt:
+    enable: true

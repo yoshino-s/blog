@@ -445,6 +445,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+hexo-blog-encrypt@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.nlark.com/hexo-blog-encrypt/download/hexo-blog-encrypt-3.1.6.tgz#953db1b2c8f415a7224db23a02cae7a063a65fe2"
+  integrity sha1-lT2xssj0FaciTbI6AsrnoGOmX+I=
+
 hexo-cli@^4.0.0:
   version "4.3.0"
   resolved "https://registry.nlark.com/hexo-cli/download/hexo-cli-4.3.0.tgz#4bb2bf11a30fae601f2f53ac0cb833fee3187649"

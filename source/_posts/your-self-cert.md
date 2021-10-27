@@ -2,6 +2,9 @@
 title: 个人能力认证 | 就在今天，独星闪耀
 date: 2021-10-27
 category: fxxk
+abstract: 这就是篇尬黑文章，诸位看个开心就行
+password: TloveY
+message: 这就是篇尬黑文章，诸位看个开心就行
 ---
 
 > 掐指一算，Y老师已经陪大家走过了两年。  
