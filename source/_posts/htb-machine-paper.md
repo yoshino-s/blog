@@ -56,11 +56,6 @@ Nmap done: 1 IP address (1 host up) scanned in 42.29 seconds
 Curl有个奇怪的头
 
 ```
-curl -v http://10.10.11.143/ | more
-*   Trying 10.10.11.143:80...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 10.10.11.143 (10.10.11.143) port 80 (#0)
 > GET / HTTP/1.1
 > Host: 10.10.11.143
 > User-Agent: curl/7.80.0
@@ -130,28 +125,6 @@ http://chat.office.paper/register/8qozr226AhkCHZdyY
 ### Chat
 
 修改hosts访问`chat.office.paper`
-
-```
-> GET / HTTP/1.1
-> Host: chat.office.paper
-> User-Agent: curl/7.80.0
-> Accept: */*
->
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 200 OK
-< Date: Thu, 17 Feb 2022 07:07:42 GMT
-< Server: Apache/2.4.37 (centos) OpenSSL/1.1.1k mod_fcgid/2.3.9
-< X-Backend-Server: office.paper
-< X-XSS-Protection: 1
-< X-Content-Type-Options: nosniff
-< X-Frame-Options: sameorigin
-< Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src * 'self' data:; img-src data: 'self' http://* https://*; style-src 'self' 'unsafe-inline'; media-src 'self' http://* https://*; frame-src 'self' http://* https://*; font-src 'self' data:;
-< X-Instance-ID: FSECETEzRJLB9RyX3
-< Content-Type: text/html; charset=utf-8
-< Vary: Accept-Encoding
-< Transfer-Encoding: chunked
-<
-```
 
 注册，登录，找到机器人
 
