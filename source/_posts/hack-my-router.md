@@ -5,6 +5,7 @@ tags:
   - iot
   - 0day
 category: iot
+password: d26gpro
 ---
 
 # 如何日了宿舍路由器
