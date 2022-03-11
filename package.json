@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "sed -i 's/hbe hbe-container/hbe/' node_modules/hexo-blog-encrypt/lib/hbe.*.html",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
