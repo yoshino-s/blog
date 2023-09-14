@@ -1,0 +1,7 @@
+position: 2
+label: 'CTF Writeup'
+link:
+  type: generated-index
+  title: CTF Writeup
+customProps:
+  description: CTF Writeup

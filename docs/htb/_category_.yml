@@ -1,0 +1,7 @@
+position: 2
+label: 'HTB Writeup'
+link:
+  type: generated-index
+  title: HTB Writeup
+customProps:
+  description: HTB Writeup
