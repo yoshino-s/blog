@@ -319,3 +319,11 @@ Done
 大成功！
 
 下班！！！
+
+## P.S.
+
+:::caution
+CNM，本来想跑个ollama的，结果告诉我`illegal instruction`，查了一下发现大部分模型都要avx2，然后我这个cpu不支持，寄。
+
+服务器型号是R720XD，只支持E5-2600 v1，v2，但是avx2是v3开始支持的。寄。摆。
+:::

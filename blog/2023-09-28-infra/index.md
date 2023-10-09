@@ -7,7 +7,7 @@ authors: [yoshino-s]
 
 # 家庭服务器环境搭建
 
-::: tip
+:::tip
 
 没写完，慢慢更
 
