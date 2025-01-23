@@ -11,6 +11,8 @@ authors: [yoshino-s]
 
 从pdd收了一张100不到的1060，超级牛逼，但是这货不支持视频输出，也不支持编解码。但是牛逼就牛逼在他真的和1060核心一样，久经沙场体质好对吧。（:laughing:）
 
+<!-- truncate -->
+
 ## 直通
 
 一开始看到了[这篇文章](https://foxi.buduanwang.vip/windows/2139.html/)，里面提到直接改vendorID和deviceID可能可行，然后从[这里]找到了1060的deviceID，在PVE里面直接填进去，然后去Windows里看了下，确实是1060了，驱动也装得上，但是就是调不起来，估计是驱动还是不太一样，然后就放弃了。

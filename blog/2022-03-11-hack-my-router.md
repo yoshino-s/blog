@@ -10,11 +10,13 @@ authors: [yoshino-s]
 
 昨天晚上下游戏下得太慢了，所以想找点既不占网速又能搞一会的事，就想起来宿舍路由器还没玩过，不如日下路由器吧。
 
+<!-- truncate -->
+
 ## 信息收集
 
 咱宿舍路由器版本
 
-![image-20220311100114440](https://cdn.yoshino-s.online//typora_img/image-20220311100114440.png)
+![image-20220311100114440](https://cdn.yoshino-s.xyz/typora_img/image-20220311100114440.png)
 
 固件版本 **1.0.6 Build 190829 Rel.45538n** ，去官网找一下对应版本固件号。
 
@@ -26,7 +28,7 @@ authors: [yoshino-s]
 
 官网下载喽
 
-![image-20220311100346819](https://cdn.yoshino-s.online//typora_img/image-20220311100346819.png)
+![image-20220311100346819](https://cdn.yoshino-s.xyz/typora_img/image-20220311100346819.png)
 
 不知道我是V1还是V2但是先下一个版本类似的V1看看吧。
 
@@ -71,11 +73,11 @@ file squashfs-root/bin/busybox
 
 然后看看里面有啥
 
-![image-20220311101054054](https://cdn.yoshino-s.online//typora_img/image-20220311101054054.png)
+![image-20220311101054054](https://cdn.yoshino-s.xyz/typora_img/image-20220311101054054.png)
 
-![image-20220311101112750](https://cdn.yoshino-s.online//typora_img/image-20220311101112750.png)
+![image-20220311101112750](https://cdn.yoshino-s.xyz/typora_img/image-20220311101112750.png)
 
-![image-20220311101207681](https://cdn.yoshino-s.online//typora_img/image-20220311101207681.png)
+![image-20220311101207681](https://cdn.yoshino-s.xyz/typora_img/image-20220311101207681.png)
 
 明显就是个openwrt定制版，看看版本没已知漏洞，只能自己挖了。cgi-bin有两个路由，但是实测访问不到，他用了另一套路由。
 
@@ -83,7 +85,7 @@ file squashfs-root/bin/busybox
 
 这里就体现了真机的好处，直接去看他走的啥路由，就不用模拟了。（嘿嘿嘿，我好懒
 
-![image-20220311101342823](https://cdn.yoshino-s.online//typora_img/image-20220311101342823.png)
+![image-20220311101342823](https://cdn.yoshino-s.xyz/typora_img/image-20220311101342823.png)
 
 然后就是找对应的controller然后找功能点，比如命令注入啥的。
 
@@ -126,7 +128,7 @@ end
 
 在`/usr/lib/lua/luci/controller/admin/weather.lua`里，有个很显然的命令注入。
 
-![image-20220311102216819](https://cdn.yoshino-s.online//typora_img/image-20220311102216819.png)
+![image-20220311102216819](https://cdn.yoshino-s.xyz/typora_img/image-20220311102216819.png)
 
 但是后来发现怎么构造都访问不到，后来发现是因为版本问题，我手头路由器没有这个功能点。。。
 
@@ -136,7 +138,7 @@ end
 
 路由器有这么一个功能，导入导出配置
 
-![image-20220311102515870](https://cdn.yoshino-s.online//typora_img/image-20220311102515870.png)
+![image-20220311102515870](https://cdn.yoshino-s.xyz/typora_img/image-20220311102515870.png)
 
 后台路由长这样
 
@@ -245,19 +247,19 @@ end
 
 加解密逻辑也挺简单的，就一个des，但是这个des很玄学，key传了个16位的，压根对不上，也没写模式和iv，还tm是的so。
 
-![image-20220311103200862](https://cdn.yoshino-s.online//typora_img/image-20220311103200862.png)
+![image-20220311103200862](https://cdn.yoshino-s.xyz/typora_img/image-20220311103200862.png)
 
 怎么办，ida呗。
 
-![image-20220311103420993](https://cdn.yoshino-s.online//typora_img/image-20220311103420993.png)
+![image-20220311103420993](https://cdn.yoshino-s.xyz/typora_img/image-20220311103420993.png)
 
 管他写了啥，直接找找开源实现，天下代码一大抄，我直接在github上找到了一模一样的实现，嘻嘻
 
-![image-20220311103601385](https://cdn.yoshino-s.online//typora_img/image-20220311103601385.png)
+![image-20220311103601385](https://cdn.yoshino-s.xyz/typora_img/image-20220311103601385.png)
 
 那不管了，直接给他解一下呗
 
-![image-20220311103657737](https://cdn.yoshino-s.online//typora_img/image-20220311103657737.png)
+![image-20220311103657737](https://cdn.yoshino-s.xyz/typora_img/image-20220311103657737.png)
 
 挺好看的哦，直接进行一个猜测，第一行就是剩下的内容md5加上版本签名。回去看看源码(`/usr/lib/lua/luci/torchlight/utils.lua#append_md5_header`)也确实这么写的。然后看一下他的parse，这里就不详细分析代码了，反正就是分离出来然后直接覆盖掉`FILE_PATH`位置上的文件。那不就成了！
 
@@ -836,7 +838,7 @@ else:
     print("poc fail", resp, poc)
 ```
 
-![image-20220311104727490](https://cdn.yoshino-s.online//typora_img/image-20220311104727490.png)
+![image-20220311104727490](https://cdn.yoshino-s.xyz/typora_img/image-20220311104727490.png)
 
 成了，写cgi-bin没法+x执行不了，所以直接写rcS之类的，在这里我选择随便找个路由写个后门就完事了。exp如下
 
@@ -929,7 +931,7 @@ while True:
 
 ```
 
-![image-20220311104922374](https://cdn.yoshino-s.online//typora_img/image-20220311104922374.png)
+![image-20220311104922374](https://cdn.yoshino-s.xyz/typora_img/image-20220311104922374.png)
 
 RCE了，root权限，剩下来的就随便玩玩啦。
 

@@ -7,6 +7,8 @@ authors: [yoshino-s]
 
 # 虚拟化技术
 
+<!-- truncate -->
+
 ## 类别
 
 ### 硬件虚拟化
@@ -25,9 +27,9 @@ authors: [yoshino-s]
 
 虚拟机模拟完整的底层硬件环境和特权指令的执行过程，使客户机操作系统可以独立运行。支持完全虚拟化的软件有：Parallels Workstation、VirtualBox、Virtual Iron、Oracle VM、Virtual PC、Virtual Server、Hyper-V、VMware Workstation、QEMU等
 
-![blob.png](https://cdn.yoshino-s.online//typora_img/23034159pmlfhjeglhdbmr.png)
+![blob.png](https://cdn.yoshino-s.xyz/typora_img/23034159pmlfhjeglhdbmr.png)
 
-![blob.png](https://cdn.yoshino-s.online//typora_img/230353ouxapr9dboa2r8cz.png)
+![blob.png](https://cdn.yoshino-s.xyz/typora_img/230353ouxapr9dboa2r8cz.png)
 
 因为宿主操作系统工作在Ring0，客户操作系统不能运行在Ring0，当客户操作系统执行特权指令时，就会发生错误。
 
@@ -41,7 +43,7 @@ authors: [yoshino-s]
 
 通过硬件辅助支持模拟运行环境，使客户机操作系统可以独立运行，实现完全虚拟化的功能。支持硬件辅助虚拟化的软件有：Linux KVM、VMware Workstation、VMware Fusion、Virtual PC、Xen、VirtualBox、Parallels Workstation等
 
-![blob.png](https://cdn.yoshino-s.online//typora_img/230806puwcxjdmixcomvwt.png)
+![blob.png](https://cdn.yoshino-s.xyz/typora_img/230806puwcxjdmixcomvwt.png)
 
 随着CPU厂商开始支持虚拟化，以X86 CPU为例，推出了支持Intel-VT的CPU，有VMX root operation和VMX non-root operation两种模式，两种模式都支持CPU运行的四个级别。
 
@@ -59,7 +61,7 @@ authors: [yoshino-s]
 
 虚拟机不需要模拟硬件，而是将部分硬件接口以软件的形式提供给客户机操作系统。如：早期的Xen。
 
-![blob.png](https://cdn.yoshino-s.online//typora_img/230720fuch70asmcs0bzci.png)
+![blob.png](https://cdn.yoshino-s.xyz/typora_img/230720fuch70asmcs0bzci.png)
 
 通过修改客户操作系统代码，将原来在物理机上执行的一些特权指令，修改成可以和VMM直接交互的方式，实现操作系统的定制化。
 
@@ -189,4 +191,4 @@ virt-what
 
 ## 参考
 
-[Towards an Understanding of Anti-virtualization and Anti-debugging Behavior in Modern Malware](https://cdn.yoshino-s.online/file/data/Towards_an_understanding_of_anti-virtualization_and_anti-debugging_behavior_in_modern_malware.pdf)
+[Towards an Understanding of Anti-virtualization and Anti-debugging Behavior in Modern Malware](https://cdn.yoshino-s.xyz/file/data/Towards_an_understanding_of_anti-virtualization_and_anti-debugging_behavior_in_modern_malware.pdf)

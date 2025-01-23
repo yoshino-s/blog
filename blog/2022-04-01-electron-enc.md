@@ -10,19 +10,21 @@ authors: [yoshino-s]
 
 遇到了个加密的electron应用，每次都逆一下挺麻烦的，于是准备研究一下思路，一劳永逸一下。
 
+<!-- truncate -->
+
 ## 分析
 
 先来看看文件结构，很明显是单纯的electron，在应用层面没做什么改动
 
-![image-20220401153425907](https://cdn.yoshino-s.online//typora_img/image-20220401153425907.png)
+![image-20220401153425907](https://cdn.yoshino-s.xyz/typora_img/image-20220401153425907.png)
 
 resource层面也基本符合要求，把核心代码，组件，node_modules分别打包了
 
-![image-20220401153500987](https://cdn.yoshino-s.online//typora_img/image-20220401153500987.png)
+![image-20220401153500987](https://cdn.yoshino-s.xyz/typora_img/image-20220401153500987.png)
 
 其中`node_modules.asar`和`lib.asar`中的代码并未有改变，但是`app.asar`中的代码被加密了
 
-![image-20220401153749304](https://cdn.yoshino-s.online//typora_img/image-20220401153749304.png)
+![image-20220401153749304](https://cdn.yoshino-s.xyz/typora_img/image-20220401153749304.png)
 
 这个加密从v1.0.0开始存在，之前也有很多人分析过了，基本就是照抄的
 
@@ -34,7 +36,7 @@ resource层面也基本符合要求，把核心代码，组件，node_modules分
 
 但是在最近一个版本开始，每个发布版的key和iv都是写死的，且每个版本都不同
 
-![image-20220401154206701](https://cdn.yoshino-s.online//typora_img/image-20220401154206701.png)
+![image-20220401154206701](https://cdn.yoshino-s.xyz/typora_img/image-20220401154206701.png)
 
 这就让我们之前直接解密的思路没用了
 
@@ -229,13 +231,13 @@ with open("main.node", "wb") as f:
     f.write(node)
 ```
 
-![image](https://cdn.yoshino-s.online//typora_img/161183475-46c9a23f-a35a-4613-9fca-2f906b7140e8.png)
+![image](https://cdn.yoshino-s.xyz/typora_img/161183475-46c9a23f-a35a-4613-9fca-2f906b7140e8.png)
 
 当然这样是有极限的，因为长度限定了，那我们不妨去直接require一个外部脚本。
 
 require会有查找范围的问题，我们先看看当前module的搜索范围，注入`function validateString(){};console.log(mod);`，可以发现它默认的查找范围有node_modules，那么很简单，我们注入一个`mod.require("inject.js")`，然后在`resources/node_modules`里放一个inject.js就可以随便注了。（突然想到强网杯随便注，笑
 
-![image-20220401160747567](https://cdn.yoshino-s.online//typora_img/image-20220401160747567.png)
+![image-20220401160747567](https://cdn.yoshino-s.xyz/typora_img/image-20220401160747567.png)
 
 然后dump也很简单了，就注入如下代码
 

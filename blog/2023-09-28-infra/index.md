@@ -19,6 +19,8 @@ authors: [yoshino-s]
 
 ![Alt text](image.png)
 
+<!-- truncate -->
+
 ## 硬件
 
 列举一下硬件和价格，没写价格的就是我忘了
