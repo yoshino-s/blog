@@ -463,7 +463,7 @@ webhooks:
   timeoutSeconds: 10
 ```
 
-那就很明显了，往他这个地方打个请求，就能拿到他修改过的资源，其中自然就包含flag了。那么怎么构建一个合法的请求呢。我之前写过，所所以我直接[魔改一个](https://gitlab.yoshino-s.xyz/yoshino-s/envoy-hook)，dump下来请求就行。（这里我就不给payload.json了，你总得自己搞点东西吧，笑）
+那就很明显了，往他这个地方打个请求，就能拿到他修改过的资源，其中自然就包含flag了。那么怎么构建一个合法的请求呢。我之前写过，所所以我直接[魔改一个](https://git.yoshino-s.xyz/yoshino-s/cilium-envoy-hook)，dump下来请求就行。（这里我就不给payload.json了，你总得自己搞点东西吧，笑）
 
 ```
 curl -k -v https://kyverno-svc.kyverno.svc/mutate/fail -H 'Content-Type: application/json' -d @payload.json
